@@ -1,0 +1,72 @@
+html {
+  font-family: 'helvetica neue';
+
+}
+body{
+  background-image: -webkit-linear-gradient(65deg, #87A8A4 50%, #986D8E 50%);
+  background-color: #424d83;
+}
+.custom{
+  background-color: #C9D8B6;
+}
+.footer{
+  text-align: center;
+}
+
+.form-container, .new-issue-container{
+  background:#fff;
+  padding:30px;
+  border-radius: 10px;
+
+}
+.form-container{
+  box-shadow: 0px 0px 10px 0px #000;
+}
+.first{
+  width: 80%;
+}
+/*////////////////////////* LINK STYLING //////////////////////////////////////*/
+a.proj-link{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+/*a normal, unvisited link*/
+a.proj-link:link{
+	color: green;
+}
+/*a link the user has visited*/
+a.proj-link:visited{
+	color: purple;
+}
+/*a link when the user mouses over it*/
+a.proj-link:hover{
+	color: yellow;
+}
+/*a link the moment it is clicked*/
+a.proj-link:active{
+	color: brown;
+}
+
+/*////////////////////////* NEW ISSUE FORM STYLING //////////////////////////////////////*/
+.new-issue-container{
+  width: 400px;
+}
+/*////////////////////////* Existing issues styling//////////////////////////////////////*/
+
+.mini-size{
+  font-size: 11px;
+}
+.issue-container {
+  box-shadow: 12px 12px 2px 1px #2C394B;
+  background-color: #DAD0C2;
+  border-radius: 3%;
+  width: 400px;
+  word-wrap: break-word;
+}
+.center-container{
+  text-align: center;
+}
+p{
+  margin: 0;
+}

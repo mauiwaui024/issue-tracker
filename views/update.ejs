@@ -1,0 +1,28 @@
+<%- include("partials/header"); -%>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-sm-6 col-md-5">
+        <div class= "form-container">
+
+          <form  action="/issues/<%=path%>/update" method="post">
+          <label>Id of the issue</label>
+          <input class="form-control" type="text" name="_id" autocomplete="off" value="<%=id%>">
+          <label>Enter updated title</label>
+          <input class="form-control" type="text" name="title"  placeholder= "Enter issue title" value="<%=title%>" autocomplete="off" >
+          <label>Enter updated issue text</label>
+          <textarea class="form-control" type="text" name="text" rows="5" cols="35"  autocomplete="off"><%=text%></textarea>
+          <label class = "label-align">Your name</label>
+          <input class="form-control" type="text" name="created_by" value="<%=created_by%>" placeholder="Enter your name" >
+          <label>Assigned to</label>
+          <input class="form-control" type="text" name="assigned_to" value="<%=assigned_to%>" placeholder="Assigned to" >
+          <label><input type="checkbox" name="closed" value="false"> Check to close issue</label><br>
+          <label><input type="checkbox" name="opened" value="true"> Check to open issue</label><br>
+          <button class="btn btn-primary col-12" type="submit" name="button">Submit</button>
+        </div>
+      </div>
+  </div>
+</div>
+        </form>
+
+<%- include("partials/footer"); -%>

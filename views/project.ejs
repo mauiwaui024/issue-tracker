@@ -1,0 +1,81 @@
+<%- include("partials/header"); -%>
+
+
+<!-- Button trigger modal -->
+<div style=""class="d-flex justify-content-between mt-3">
+<h2>Issues related to: <%= projectName %>  </h2>
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add new issue
+  </button>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add new issue:</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- add a new issue to the project -->
+  <form  class="text-center" action="/issues/<%=path%>" method="post">
+    <label>Title</label>
+  <input class="form-control" type="text" name="title"  placeholder= "Enter issue title"  autocomplete="off" >
+  <label>Issue text</label>
+  <textarea class="form-control" type="text" name="text" rows="5" cols="35"  placeholder="Enter issue text" autocomplete="off"></textarea>
+  <label class = "label-align">Your name</label>
+  <input class="form-control" type="text" name="created_by" placeholder="Enter your name" >
+  <label>Assigned to</label>
+  <input class="form-control" type="text" name="assigned_to" placeholder="Assigned to" >
+  <button class="btn btn-primary" type="submit" name="button">Submit</button>
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+  </form>
+  </div>
+    </div>
+  </div>
+</div>
+
+
+      <div class="row">
+    <%  project.forEach(function(element){ %>
+        <div class="col mt-3 mb-3">
+
+          <div class="issue-container p-3">
+            <p class = "mini-size"> <strong>Id:</strong> <%= element._id %></p>
+            <div class="center-container">
+              <p> <strong>Title:</strong> <%= element.title %></p>
+                          <hr>
+                <p><strong>Issue text:</strong> <%=element.text %></p>
+                          <hr>
+              <p><strong>Created by:</strong> <%= element.created_by %></p>
+              <p><strong>Assigned to:</strong> <%= element.assigned_to %></p>
+              <p><strong>Status:</strong> <%= element.open %></p>
+              <p class = "mini-size"> <strong>Created on:</strong> <%= element.created_on %></p>
+              <p class = "mini-size"> <strong>Updated on: </strong> <%= element.updated_on %></p>
+              <div class="row ">
+                <div class="col-12 col-sm-6 col-md-6">
+                  <form class="" action="/issues/<%=path%>/update" method="get">
+                  <button class="btn btn-primary" type="submit" name="linkName" value ="<%= element._id %>" > Update</button>
+                  </form>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6">
+                      <form onSubmit="return confirm('Are you sure you want to delete this issue? It will be impossible to restore it')" class=""  action="/issues/<%=path%>/delete" method="post">
+                            <button class="btn btn-danger" onsubmit="return false" type="submit" name="delBtn" value ="<%= element._id %>" >Delete</button>
+                      </form>
+                    </div>
+              </div>
+            </div>
+      </div>
+    </div>
+        <%    }) %>
+      </div>
+
+
+
+
+
+  <%- include("partials/footer"); -%>
