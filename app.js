@@ -4,8 +4,7 @@ const mongoose = require("mongoose")
 const _ = require('lodash');
 const session = require("express-session");
 const passport = require("passport");
-const passportLocalMongoose = require("passport-local-mongoose")
-const moment = require("moment");
+const passportLocalMongoose = require("passport-local-mongoose");
 
 const Issue = require(__dirname + "/models").Issue;
 const Project = require(__dirname + "/models").Project;
