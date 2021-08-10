@@ -32,9 +32,9 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 const d = new Date;
-const date = moment(d).format('lll');
 
-console.log(date);
+
+
 
 app.route("/issues/:projectName")
 .post([
